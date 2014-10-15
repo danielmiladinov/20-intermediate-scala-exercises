@@ -13,20 +13,28 @@ trait Fluffy[F[_]] {
 object Fluffy {
   // Exercise 1
   // Relative Difficulty: 1
-  def ListFluffy: Fluffy[List] = ???
+  def ListFluffy: Fluffy[List] = new Fluffy[List] {
+    def furry[A, B](f: (A) => B, fa: List[A]): List[B] = fa map f
+  }
 
   // Exercise 2
   // Relative Difficulty: 1
-  def OptionFluffy: Fluffy[Option] = ???
+  def OptionFluffy: Fluffy[Option] = new Fluffy[Option] {
+    def furry[A, B](f: (A) => B, fa: Option[A]): Option[B] = fa map f
+  }
 
   // Exercise 3
   // Relative Difficulty: 1
-  def StreamFluffy: Fluffy[Stream] = ???
+  def StreamFluffy: Fluffy[Stream] = new Fluffy[Stream] {
+    def furry[A, B](f: (A) => B, fa: Stream[A]): Stream[B] = fa map f
+  }
 
   // Exercise 4
   // Relative Difficulty: 1
   import scala.collection.mutable
-  def ArrayFunctor: Fluffy[mutable.ArraySeq] = ???
+  def ArrayFluffy: Fluffy[mutable.ArraySeq] = new Fluffy[mutable.ArraySeq] {
+    def furry[A, B](f: (A) => B, fa: mutable.ArraySeq[A]): mutable.ArraySeq[B] = fa map f
+  }
 
   // Exercise 5
   // Relative Difficulty: 5
