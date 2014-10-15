@@ -38,8 +38,9 @@ object Fluffy {
 
   // Exercise 5
   // Relative Difficulty: 5
-  def Function1Fluffy[X]: Fluffy[PartialType[Function1, X]#Apply] =
-    ???
+  def Function1Fluffy[X]: Fluffy[PartialType[Function1, X]#Apply] = new Fluffy[PartialType[Function1, X]#Apply] {
+    def furry[A, B](f: (A) => B, fa: PartialType[Function1, X]#Apply[A]): PartialType[Function1, X]#Apply[B] = f compose fa
+  }
 
   // Exercise 6
   // Relative Difficulty: 6
