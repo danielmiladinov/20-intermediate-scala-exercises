@@ -25,7 +25,8 @@ object Fluffy {
 
   // Exercise 4
   // Relative Difficulty: 1
-  def ArrayFluffy: Fluffy[Array] = ???
+  import scala.collection.mutable
+  def ArrayFunctor: Fluffy[mutable.ArraySeq] = ???
 
   // Exercise 5
   // Relative Difficulty: 5
