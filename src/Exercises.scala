@@ -63,7 +63,7 @@ trait Misty[M[_]] extends Fluffy[M] {
   // Exercise 8
   // Relative Difficulty: 3
   // (use banana and/or unicorn)
-  def furry[A, B](f: A => B, ma: M[A]): M[B] = ???
+  def furry[A, B](f: A => B, ma: M[A]): M[B] = banana[A, B]((x: A) => unicorn[B](f(x)), ma)
 }
 
 object Misty {
