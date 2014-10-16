@@ -50,8 +50,9 @@ object Fluffy {
 
   // Exercise 7
   // Relative Difficulty: 4
-  def EitherRightFluffy[X]: Fluffy[PartialType[Either.RightProjection, X]#Apply] =
-    ???
+  def EitherRightFluffy[X]: Fluffy[PartialType[Either.RightProjection, X]#Apply] = new Fluffy[PartialType[Either.RightProjection, X]#Apply] {
+    def furry[A, B](f: (A) => B, fa: PartialType[Either.RightProjection, X]#Apply[A]): PartialType[Either.RightProjection, X]#Apply[B] = Either.RightProjection(Right[X, B](f(fa.get)))
+  }
 }
 
 trait Misty[M[_]] extends Fluffy[M] {
