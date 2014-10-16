@@ -44,8 +44,9 @@ object Fluffy {
 
   // Exercise 6
   // Relative Difficulty: 6
-  def EitherLeftFluffy[X]: Fluffy[PartialType[Either.LeftProjection, X]#Flip] =
-    ???
+  def EitherLeftFluffy[X]: Fluffy[PartialType[Either.LeftProjection, X]#Flip] = new Fluffy[PartialType[Either.LeftProjection, X]#Flip] {
+    def furry[A, B](f: (A) => B, fa: PartialType[Either.LeftProjection, X]#Flip[A]): PartialType[Either.LeftProjection, X]#Flip[B] = Either.LeftProjection(Left[B, X](f(fa.get)))
+  }
 
   // Exercise 7
   // Relative Difficulty: 4
