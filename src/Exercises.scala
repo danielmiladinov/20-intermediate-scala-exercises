@@ -69,7 +69,11 @@ trait Misty[M[_]] extends Fluffy[M] {
 object Misty {
   // Exercise 9
   // Relative Difficulty: 2
-  def ListMisty: Misty[List] = ???
+  def ListMisty: Misty[List] = new Misty[List] {
+    def banana[A, B](f: (A) => List[B], ma: List[A]): List[B] = ma flatMap f
+
+    def unicorn[A](a: A): List[A] = List(a)
+  }
 
   // Exercise 10
   // Relative Difficulty: 2
