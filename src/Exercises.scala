@@ -77,7 +77,11 @@ object Misty {
 
   // Exercise 10
   // Relative Difficulty: 2
-  def OptionMisty: Misty[Option] = ???
+  def OptionMisty: Misty[Option] = new Misty[Option] {
+    def banana[A, B](f: (A) => Option[B], ma: Option[A]): Option[B] = ma flatMap f
+
+    def unicorn[A](a: A): Option[A] = Option(a)
+  }
 
   // Exercise 11
   // Relative Difficulty: 2
