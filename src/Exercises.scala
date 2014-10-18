@@ -85,7 +85,11 @@ object Misty {
 
   // Exercise 11
   // Relative Difficulty: 2
-  def StreamMisty: Misty[Stream] = ???
+  def StreamMisty: Misty[Stream] = new Misty[Stream] {
+    def banana[A, B](f: (A) => Stream[B], ma: Stream[A]): Stream[B] = ma flatMap f
+
+    def unicorn[A](a: A): Stream[A] = Stream(a)
+  }
 
   // Exercise 12
   // Relative Difficulty: 2
