@@ -102,8 +102,11 @@ object Misty {
 
   // Exercise 13
   // Relative Difficulty: 6
-  def Function1Misty[X]: Misty[PartialType[Function1, X]#Apply] =
-    ???
+  def Function1Misty[X]: Misty[PartialType[Function1, X]#Apply] = new Misty[PartialType[Function1, X]#Apply] {
+    def banana[A, B](f: (A) => PartialType[Function1, X]#Apply[B], ma: PartialType[Function1, X]#Apply[A]): PartialType[Function1, X]#Apply[B] = (x: X) => f(ma(x))(x)
+
+    def unicorn[A](a: A): PartialType[Function1, X]#Apply[A] = (x: X) => a
+  }
 
   // Exercise 14
   // Relative Difficulty: 7
