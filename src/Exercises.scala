@@ -93,7 +93,12 @@ object Misty {
 
   // Exercise 12
   // Relative Difficulty: 2
-  def ArrayMisty: Misty[Array] = ???
+  import collection.mutable
+  def ArrayMisty: Misty[mutable.ArraySeq] = new Misty[mutable.ArraySeq] {
+    def banana[A, B](f: (A) => mutable.ArraySeq[B], ma: mutable.ArraySeq[A]): mutable.ArraySeq[B] = ma flatMap f
+
+    def unicorn[A](a: A): mutable.ArraySeq[A] = mutable.ArraySeq(a)
+  }
 
   // Exercise 13
   // Relative Difficulty: 6
