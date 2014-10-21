@@ -110,8 +110,11 @@ object Misty {
 
   // Exercise 14
   // Relative Difficulty: 7
-  def EitherLeftMisty[X]: Misty[PartialType[Either.LeftProjection, X]#Flip] =
-    ???
+  def EitherLeftMisty[X]: Misty[PartialType[Either.LeftProjection, X]#Flip] = new Misty[PartialType[Either.LeftProjection, X]#Flip] {
+    def banana[A, B](f: (A) => PartialType[Either.LeftProjection, X]#Flip[B], ma: PartialType[Either.LeftProjection, X]#Flip[A]): PartialType[Either.LeftProjection, X]#Flip[B] = f(ma.get)
+
+    def unicorn[A](a: A): PartialType[Either.LeftProjection, X]#Flip[A] = Either.LeftProjection(Left(a))
+  }
 
   // Exercise 15
   // Relative Difficulty: 5
