@@ -118,8 +118,11 @@ object Misty {
 
   // Exercise 15
   // Relative Difficulty: 5
-  def EitherRightMisty[X]: Misty[PartialType[Either.RightProjection, X]#Apply] =
-    ???
+  def EitherRightMisty[X]: Misty[PartialType[Either.RightProjection, X]#Apply] = new Misty[PartialType[Either.RightProjection, X]#Apply] {
+    def banana[A, B](f: (A) => PartialType[Either.RightProjection, X]#Apply[B], ma: PartialType[Either.RightProjection, X]#Apply[A]): PartialType[Either.RightProjection, X]#Apply[B] = f(ma.get)
+
+    def unicorn[A](a: A): PartialType[Either.RightProjection, X]#Apply[A] = Either.RightProjection(Right(a))
+  }
 
   // Exercise 16
   // Relative Difficulty: 3
