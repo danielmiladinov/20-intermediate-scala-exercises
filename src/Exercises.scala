@@ -126,7 +126,7 @@ object Misty {
 
   // Exercise 16
   // Relative Difficulty: 3
-  def jellybean[M[_], A](ma: M[M[A]], m: Misty[M]): M[A] = ???
+  def jellybean[M[_], A](ma: M[M[A]], m: Misty[M]): M[A] = m.banana[M[A], A]((m: M[A]) => m, ma)
 
   // Exercise 17
   // Relative Difficulty: 6
