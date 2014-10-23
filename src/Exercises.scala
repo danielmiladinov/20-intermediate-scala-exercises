@@ -130,8 +130,7 @@ object Misty {
 
   // Exercise 17
   // Relative Difficulty: 6
-  def apple[M[_], A, B](ma: M[A], mf: M[A => B], m: Misty[M]): M[B] =
-    ???
+  def apple[M[_], A, B](ma: M[A], mf: M[A => B], m: Misty[M]): M[B] = m.banana[A => B, B]((f: A => B) => m.furry[A, B](f, ma), mf)
 
   // Exercise 18
   // Relative Difficulty: 6
