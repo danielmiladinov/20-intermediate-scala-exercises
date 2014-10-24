@@ -142,7 +142,9 @@ object AdvancedFun {
 
   // Exercise 19
   // Relative Difficulty: 9
-  def StateFluffy[S]: Fluffy[PartialType[State, S]#Apply] = ???
+  def StateFluffy[S]: Fluffy[PartialType[State, S]#Apply] = new Fluffy[PartialType[State, S]#Apply] {
+    def furry[A, B](f: (A) => B, fa: PartialType[State, S]#Apply[A]): PartialType[State, S]#Apply[B] = State[S, B]((s: S) => (s, f(fa.f(s)._2)))
+  }
 
   // Exercise 20
   // Relative Difficulty: 10
