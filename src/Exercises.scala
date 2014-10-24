@@ -134,8 +134,7 @@ object Misty {
 
   // Exercise 18
   // Relative Difficulty: 6
-  def moppy[M[_], A, B](as: List[A], f: A => M[B], m: Misty[M]): M[List[B]] =
-    ???
+  def moppy[M[_], A, B](as: List[A], f: A => M[B], m: Misty[M]): M[List[B]] = m.furry[B, List[B]]((b: B) => List(b), f(as.head))
 }
 
 object AdvancedFun {
