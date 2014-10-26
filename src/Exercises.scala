@@ -148,5 +148,9 @@ object AdvancedFun {
 
   // Exercise 20
   // Relative Difficulty: 10
-  def StateMisty[S]: Misty[PartialType[State, S]#Apply] = ???
+  def StateMisty[S]: Misty[PartialType[State, S]#Apply] = new Misty[PartialType[State, S]#Apply] {
+    def banana[A, B](f: (A) => PartialType[State, S]#Apply[B], ma: PartialType[State, S]#Apply[A]): PartialType[State, S]#Apply[B] = State[S, B]((s: S) => (s, f(ma.f(s)._2).f(s)._2))
+
+    def unicorn[A](a: A): PartialType[State, S]#Apply[A] = State[S, A]((s: S) => (s, a))
+  }
 }
